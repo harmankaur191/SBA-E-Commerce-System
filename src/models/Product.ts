@@ -18,6 +18,7 @@ class Product{
     discountPercentage: number;
     rating: number;
     
+    
 
     constructor(data: ProductData){
         this.id = data.id;
