@@ -1,6 +1,6 @@
 import { fetchProductById } from "../services/apiService.js";
 import {calculateDiscount} from "../utils/discountCalculator.js";
-//import {calculateTaxRate} from "../utils/taxCalculator.js";
+import {calculateTax} from "../utils/taxCalculator.js";
 
 export interface ProductData{
     id: number;
@@ -42,7 +42,9 @@ export class Product{
         console.log(`Product price: $ ${this. price}`);
         console.log(`Product's discount percentage: ${this.discountPercentage} %`);
         //console.log(`Product ratings: ${this.rating}`);
-        console.log('Product price after disount: $', this.getPriceWithDiscount())
+        console.log('Product price after disount: $', this.getPriceWithDiscount());
+        const taxAmount = Number(calculateTax(this.getPriceWithDiscount(), this.category));
+        console.log('Price after tax: $', taxAmount+this.getPriceWithDiscount());
      }
 
     getPriceWithDiscount(): number{
