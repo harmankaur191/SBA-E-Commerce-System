@@ -1,6 +1,4 @@
 import { Product } from "./models/Product.js";
-//import {calculateTax} from '../src/utils/taxCalculator.js'
-//import {calculateDiscount} from '../src/utils/discountCalculator.js'
 import {fetchProductById} from '../src/services/apiService.js'
 import { handleError } from "./utils/errorHandler.js";
 
