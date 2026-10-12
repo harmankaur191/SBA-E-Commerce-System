@@ -1,11 +1,11 @@
 export class AppError extends Error{
     constructor(statusCode: number, message: string,){
         super(message);
-        this.message = message;
+        this.name = 'AppError';
     }
 }
 
-function handleError(error:any){
+export function handleError(error:any){
     if(error instanceof AppError){
         console.error(`[Error ${error.message}]`);
         return;

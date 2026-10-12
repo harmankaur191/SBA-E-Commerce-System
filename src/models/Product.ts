@@ -1,3 +1,7 @@
+import { fetchProductById } from "../services/apiService.js";
+import {calculateDiscount} from "../utils/discountCalculator.js";
+//import {calculateTaxRate} from "../utils/taxCalculator.js";
+
 export interface ProductData{
     id: number;
     title: string;
@@ -26,7 +30,7 @@ export class Product{
         this.description = data.description;
         this.category =data.category;
         this.price = data.price;
-        this.discountPercentage =data.discountPercentage;
+        this.discountPercentage = data.discountPercentage;
         this.rating =data.rating;
     }
    
@@ -34,13 +38,17 @@ export class Product{
         console.log(`Product id: ${this.id}`);
         console.log(`Product name: ${this.title}`);
         console.log(`Product description: ${this.description}`);
-        console.log(`Product price: ${this. price}`);
-        console.log(`Product's discount percentage: ${this.discountPercentage}`);
-        console.log(`Product ratings: ${this.rating}`);
+        console.log(`Product category: ${this. category}`);
+        console.log(`Product price: $ ${this. price}`);
+        console.log(`Product's discount percentage: ${this.discountPercentage} %`);
+        //console.log(`Product ratings: ${this.rating}`);
+        console.log('Product price after disount: $', this.getPriceWithDiscount())
      }
 
     getPriceWithDiscount(): number{
-        
-        return 0;
+        const discountedPrice = Number(calculateDiscount(this.price,this.discountPercentage));
+        const reducedprice = this.price - Number(discountedPrice);
+        //console.log(reducedprice);
+        return reducedprice;
 }
 }
