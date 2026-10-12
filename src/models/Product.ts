@@ -30,10 +30,16 @@ class Product{
     }
    
      displayDetails(): any {
-
+        console.log(`Product id: ${this.id}`);
+        console.log(`Product name: ${this.title}`);
+        console.log(`Product description: ${this.description}`);
+        console.log(`Product price: ${this. price}`);
+        console.log(`Product's discount percentage: ${this.discountPercentage}`);
+        console.log(`Product ratings: ${this.rating}`);
      }
 
     getPriceWithDiscount(): number{
+        
         return 0;
 }
 }
